@@ -88,6 +88,17 @@ function markMileStone(checkbox, id) {
 
     // task - do the sorting
     // reload list
+    reloadMilestones();
+  }
+  function reloadMilestones() {
+    const reloadMilestonesList = milestonesList.querySelectorAll(".milestone");
+    const newArray = [...reloadMilestonesList];
+    const milestoneArraySort = newArray.sort(function (a, b) {
+      return a.id - b.id;
+    });
+    milestoneArraySort.forEach((item) => {
+      milestonesList.appendChild(item);
+    });
   }
 }
 
